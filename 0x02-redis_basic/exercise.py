@@ -33,6 +33,9 @@ def call_history(method: Callable) -> Callable:
 
 
 def replay(fn: Callable) -> None:
+    """
+    Print call history of a cache class method
+    """
     if fn is None or not hasattr(fn, '__self__'):
         return
     redis_store = getattr(fn.__self__, '_redis', None)
